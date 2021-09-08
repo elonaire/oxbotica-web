@@ -62,7 +62,7 @@ const Vehicles: FunctionComponent<VehiclesProps> = (props: VehiclesProps) => {
                 </thead>
                 <tbody>
                     {vehicles && vehicles.length > 0 &&
-                        vehicles.map((vehicle: Vehicle, index: number) => (<tr>
+                        vehicles.map((vehicle: Vehicle, index: number) => (<tr key={index}>
                             <td>{index + 1}</td>
                             <td>{vehicle.name}</td>
                             <td>{vehicle.color}</td>
