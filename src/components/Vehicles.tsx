@@ -1,9 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import Axios from 'axios';
 import './Vehicles.scss';
+import { useHistory } from "react-router-dom";
 
 interface VehiclesProps {
-    history: any;
+    
 }
 
 interface Vehicle {
@@ -13,17 +14,18 @@ interface Vehicle {
     plate_number: string;
 }
 
-const Vehicles: FunctionComponent<VehiclesProps> = (props: VehiclesProps) => {
+const Vehicles: FunctionComponent<any> = (props: any) => {
     const [isLoading, setLoading] = useState(false as boolean);
     const [vehicles, setVehicles] = useState([] as Vehicle[] | any);
     const [error, setError] = useState('' as any);
+    let history = useHistory();
 
     useEffect(() => {
         getVehicles();
     }, []);
 
     const viewTelemetry = (id: string): void => {
-        props.history.push(`/telemetry/${id}`);
+        history.push(`/vehicle/${id}`);
     }
 
     const getVehicles = async (): Promise<void> => {

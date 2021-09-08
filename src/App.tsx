@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Telemetry from './components/Telemetry';
+import VehicleDetails from './components/VehicleDetails';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <div>
           <Switch>
             <Route exact component={Home} path="/" />
-            <Route exact component={Telemetry} path="/vehicle/:id" />
+            <Route exact component={VehicleDetails} path="/vehicle/:id" />
           </Switch>
         </div>
       </Router>
