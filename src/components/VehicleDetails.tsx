@@ -8,7 +8,7 @@ interface VehicleDetailsProps {
     
 }
 
-interface VehicleDetails {
+interface IVehicleDetails {
     id: string;
     name: string;
     color: string;
@@ -25,9 +25,9 @@ export interface VehicleTelemetry {
     battery_level: number;
 }
  
-const VehicleDetails: FunctionComponent<VehicleDetailsProps> = () => {
+const VehicleDetails: FunctionComponent<VehicleDetailsProps> = (props: VehicleDetailsProps) => {
     const [isLoading, setLoading] = useState(false as boolean);
-    const [vehicleDetails, setVehicleDetails] = useState(null as VehicleDetails | null);
+    const [vehicleDetails, setVehicleDetails] = useState(null as IVehicleDetails | null);
     const [vehicleTelemetry, setVehicleTelemetry] = useState(null as VehicleTelemetry | null);
     const [error, setError] = useState('' as any);
     let {id} = useParams() as any;
@@ -48,7 +48,7 @@ const VehicleDetails: FunctionComponent<VehicleDetailsProps> = () => {
 
             console.log('res.data', res.data);
 
-            setVehicleDetails(res.data as VehicleDetails);
+            setVehicleDetails(res.data as IVehicleDetails);
             setLoading(false);
         } catch (error: any) {
             setError(error.response as any);

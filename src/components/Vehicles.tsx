@@ -14,7 +14,7 @@ interface Vehicle {
     plate_number: string;
 }
 
-const Vehicles: FunctionComponent<any> = (props: any) => {
+const Vehicles: FunctionComponent<VehiclesProps> = (props: VehiclesProps) => {
     const [isLoading, setLoading] = useState(false as boolean);
     const [vehicles, setVehicles] = useState([] as Vehicle[] | any);
     const [error, setError] = useState('' as any);
