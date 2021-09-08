@@ -34,8 +34,8 @@ const VehicleDetails: FunctionComponent<VehicleDetailsProps> = (props: VehicleDe
 
     useEffect(() => {
         getVehiclesDetails();
-        getVehiclesTelemetry();
-    }, []);
+        setTimeout(() => {getVehiclesTelemetry()}, 3000);
+    }, [vehicleTelemetry]);
     
     const getVehiclesDetails = async (): Promise<void> => {
         setLoading(true);
